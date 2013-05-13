@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>tycho-test</groupId>
   <artifactId>parent</artifactId>
@@ -12,35 +13,7 @@
   <properties>
     <tycho.version>0.16.0</tycho.version>
     <tycho-extras.version>0.16.0</tycho-extras.version>
-
-    <juno-repo.url>http://download.eclipse.org/releases/juno</juno-repo.url>
-    <tycho-repo.url>https://oss.sonatype.org/content/groups/public/</tycho-repo.url>
   </properties>
-
-
-  <repositories>
-    <repository>
-      <id>juno</id>
-      <url>${juno-repo.url}</url>
-      <layout>p2</layout>
-    </repository>
-
-  </repositories>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>tycho</id>
-      <url>${tycho-repo.url}</url>
-      <!--
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-      -->
-    </pluginRepository>
-  </pluginRepositories>
 
   <build>
     <plugins>
@@ -50,7 +23,6 @@
         <version>${tycho.version}</version>
         <extensions>true</extensions>
       </plugin>
-
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>target-platform-configuration</artifactId>
@@ -84,7 +56,6 @@
           </environments>
         </configuration>
       </plugin>
-
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-source-plugin</artifactId>
@@ -188,5 +159,18 @@
     </pluginManagement>
   </build>
 
+  <repositories>
+    <repository>
+      <id>local-repo</id>
+      <url>file://${basedir}/../parent/local-p2/local-repo</url>
+      <layout>p2</layout>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>tycho</id>
+      <url>https://oss.sonatype.org/content/groups/public/</url>
+    </pluginRepository>
+  </pluginRepositories>
 </project> 
 

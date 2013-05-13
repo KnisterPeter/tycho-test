@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="target-def" sequenceNumber="19">
+<locations>
+<location path="${resource_loc:/tycho-parent/local-p2/target-plat}" type="Directory"/>
+</locations>
+</target>
